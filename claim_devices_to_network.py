@@ -2,20 +2,30 @@ import requests
 import json
 from openpyxl import load_workbook
 
-# ################################################# PARAMETERS #########################################################
+# ################################################# PARAMETERS BELOW ###################################################
+# Please fill in parameters below.
+# You can add devices to one or multiple networks.
+# ap_abr is a variable that is used to track device names. Typical syntax for NN1-AP1-25 is NN1-
+# Make sure that every parameter is added in correct order: Network Name1 > Sheet Name1 > NN1-
+# ######################################################################################################################
 meraki_api = 'APIKEY'
 organization_id = 'Organization Name'
 network_ids = ['Network Name1', 'Network Name2']
-spread = 'Spreadsheet.xlsx'
-tabs = ['Sheet Name1', 'Sheet Name2']
+spread = 'spreadsheet.xlsx'
 address = ['Physical Address of First Network', 'Physical Address of Second Network']
+tabs = ['Sheet Name1', 'Sheet Name2']
 ap_abr = ['NN1-', 'NN2-']
+# ##################################################### PARAMETERS #####################################################
+# If using default spreadsheet, no changes below are necessary.
+# Custom spreadsheets require column changes below.
+# ######################################################################################################################
 ap_name_column = 'A'
 notes_column = 'B'
 tags_column = 'C'
-serials_column = 'U'
-mac_column = 'V'
-# ################################################# PARAMETERS #########################################################
+serials_column = 'D'
+mac_column = 'E'
+# ################################################# PARAMETERS ABOVE ###################################################
+
 
 net_dictionary = {}
 headers = {
