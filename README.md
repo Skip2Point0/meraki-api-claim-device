@@ -17,7 +17,7 @@ How to run:
 1) Attached is a spreadsheet that can be used. Custom spreadsheet can be used, but column variables must be changed under 
    PARAMETERS section.
 2) Open claim_devices_to_network.py with your favorite text editor and edit PARAMETERS sections of the script: 
-   1) Lines 11-17 is mandatory.
-   2) Line 21-25 are required if using custom spreadsheet.
+   1) Lines 11-16 is mandatory.
+   2) Line 21-22 are required if using custom spreadsheet.
 3) Run python3 claim_devices_to_network.py in your terminal. Ensure spreadsheet file and python script are 
    in the same folder/location.
