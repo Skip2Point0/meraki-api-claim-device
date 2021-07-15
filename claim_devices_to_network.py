@@ -25,14 +25,11 @@ tags_column = 'C'
 serials_column = 'D'
 mac_column = 'E'
 # ################################################# PARAMETERS ABOVE ###################################################
-
-
 net_dictionary = {}
 headers = {
     'X-Cisco-Meraki-API-Key': meraki_api,
     'Content-Type': 'application/json'
 }
-
 print(spread)
 wb = load_workbook(spread)
 
