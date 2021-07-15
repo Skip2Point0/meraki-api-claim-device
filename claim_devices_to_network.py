@@ -12,7 +12,6 @@ meraki_api = 'APIKEY'
 organization_id = 'Organization Name'
 network_ids = ['Network Name1', 'Network Name2']
 spread = 'spreadsheet.xlsx'
-address = ['Physical Address of First Network', 'Physical Address of Second Network']
 tabs = ['Sheet Name1', 'Sheet Name2']
 ap_abr = ['NN1-', 'NN2-']
 # ##################################################### PARAMETERS #####################################################
@@ -20,10 +19,7 @@ ap_abr = ['NN1-', 'NN2-']
 # Custom spreadsheets require column changes below.
 # ######################################################################################################################
 ap_name_column = 'A'
-notes_column = 'B'
-tags_column = 'C'
 serials_column = 'D'
-mac_column = 'E'
 # ################################################# PARAMETERS ABOVE ###################################################
 net_dictionary = {}
 headers = {
