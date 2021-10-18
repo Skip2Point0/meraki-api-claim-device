@@ -22,6 +22,7 @@ ap_name_column = 'A'
 serials_column = 'D'
 # ################################################# PARAMETERS ABOVE ###################################################
 net_dictionary = {}
+shard_url = ()
 headers = {
     'X-Cisco-Meraki-API-Key': meraki_api,
     'Content-Type': 'application/json'
@@ -31,9 +32,9 @@ wb = load_workbook(spread)
 
 
 def pull_organization_id(head):
+    global shard_url
     url = "https://api.meraki.com/api/v0/organizations"
     payload = {}
-
     response = requests.request("GET", url, headers=head, data=payload)
     response = response.content
     response = json.loads(response)
@@ -41,8 +42,12 @@ def pull_organization_id(head):
         name = dicti["name"]
         if name == organization_id:
             org_id = dicti["id"]
+            shard_url = dicti["url"]
+            urllenght = shard_url.find('com') + 3
+            shard_url = shard_url[:urllenght]
             print("#################################################")
             print(name + "\n" + "Organization ID: " + org_id)
+            print("Organization Shard URL: " + shard_url)
             print("#################################################")
             return org_id
         else:
@@ -110,7 +115,7 @@ def meraki_claim_serial(workbook, networks, tbs, abr, serial, name, head):
                 ap_index.append(unsorted_ap)
                 row_index.append(row)
                 serials = sheet[serial + str(n_ap_index)].value
-                url = ("https://api.meraki.com/api/v0/networks/" + networks[incr] + "/devices/claim")
+                url = shard_url + "/api/v0/networks/" + networks[incr] + "/devices/claim"
                 print(url)
                 payload = {
                     "serial": serials,
